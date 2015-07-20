@@ -12,8 +12,10 @@ Coding Style
 Requirements
 ----------------------
 
-* Java 7
-* Postgres
+* Java 7 `sudo apt-get install default-jre`, `sudo apt-get install openjdk-7-jre`
+* Postgres `sudo apt-get install postgresql`
+* Ant `sudo apt-get install ant`
+* Unzip `sudo apt-get install unzip`
 
 Mac OS X
 --------
@@ -41,9 +43,12 @@ Note: these values are from: http://www.postgresql.org/docs/9.2/static/kernel-re
 Running/Building
 ----------------
 
+* (ONCE): Add postgres to PATH `export PATH=$PATH:/usr/lib/postgresql/9.3/bin`
 * (ONCE): Run `./build.sh` to set up a local Postgres database in `build/postgres`
 * `postgres -D build/postgres` starts Postgres using that local database
+* (ONCE): Change to postgres user `sudo su - postgres`
 * (ONCE): `psql -c 'create database mitro;' postgres` creates the database named `mitro`
+* (ONCE): Log out of postgres user `exit`
 * `ant server` builds and starts the server.
 * Connect to https://localhost:8443/mitro-core/
 

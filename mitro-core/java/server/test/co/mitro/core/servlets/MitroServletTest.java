@@ -98,7 +98,7 @@ public class MitroServletTest {
     // Homebrew Mac OS X
     "/usr/local/bin",
     // Ubuntu
-    "/usr/lib/postgresql/9.1/bin",
+    "/usr/lib/postgresql/9.3/bin",
   };
 
   private final static String INITDB = "initdb";
