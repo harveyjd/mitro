@@ -43,12 +43,25 @@ Note: these values are from: http://www.postgresql.org/docs/9.2/static/kernel-re
 Running/Building
 ----------------
 
-* (ONCE): Add postgres to PATH `export PATH=$PATH:/usr/lib/postgresql/9.3/bin`
+OSX:
 * (ONCE): Run `./build.sh` to set up a local Postgres database in `build/postgres`
 * `postgres -D build/postgres` starts Postgres using that local database
-* (ONCE): Change to postgres user `sudo su - postgres`
 * (ONCE): `psql -c 'create database mitro;' postgres` creates the database named `mitro`
+* `ant server` builds and starts the server.
+* Connect to https://localhost:8443/mitro-core/
+
+Ubuntu:
+* (ONCE): Add postgres to PATH `export PATH=$PATH:/usr/lib/postgresql/9.3/bin`
+* (ONCE): Run `./build.sh` to set up a local Postgres database in `build/postgres`
+* `pg_ctl -D /home/ubuntu/mitro/mitro-core/build/postgres -l logfile start` starts Postgres using that local database
+* (ONCE): Change to postgres user `sudo su - postgres`
+* (ONCE): Add postgres to postgres user's PATH `export PATH=$PATH:/usr/lib/postgresql/9.3/bin`
+* (ONCE): Create database user 'ubuntu' `createuser ubuntu`
+* (ONCE): Create database with owner 'ubuntu' `createdb -O ubuntu mitro`
 * (ONCE): Log out of postgres user `exit`
+* (ONCE): Modify postgres config `sudo nano /etc/postgresql/9.3/main/pg_hba.conf`:
+  * (ONCE): Make sure lines `local all postgres   peer` and `local all ubuntu   peer` are set
+  * (ONCE): Restart postgres `sudo service postgresql restart`
 * `ant server` builds and starts the server.
 * Connect to https://localhost:8443/mitro-core/
 
