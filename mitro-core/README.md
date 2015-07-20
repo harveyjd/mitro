@@ -15,6 +15,7 @@ Requirements
 * Java 7 `sudo apt-get install default-jre`, `sudo apt-get install openjdk-7-jre`
 * Postgres `sudo apt-get install postgresql`
 * libpq-dev `sudo apt-get install libpq-dev`
+* Python dev `sudo apt-get install python2.7-dev`
 * Ant `sudo apt-get install ant`
 * Unzip `sudo apt-get install unzip`
 
